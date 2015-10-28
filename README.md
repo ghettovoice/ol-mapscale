@@ -27,7 +27,8 @@ define(['openlayers', 'ol3-mapscale'], function(ol, olMapScale) {
 
 TODO:   
 describe other options ...  
-add examples
+add examples  
+add rounding to concrete list of scales
 
 
 
