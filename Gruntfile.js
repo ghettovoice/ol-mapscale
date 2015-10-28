@@ -44,17 +44,12 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        umd: {
+        umd_wrapper: {
             build: {
-                options: {
-                    src: '<%= paths.dest %>/<%= basename %>.js',
-                    dest: '<%= paths.dest %>/<%= basename %>.js',
-                    objectToExport: 'MapScale',
-                    globalAlias: 'olMapScale',
-                    deps: {
-                        'default': ['ol']
-                    }
-                }
+                files: [{
+                    src: '<%= paths.src %>/module',
+                    dest: '<%= paths.dest %>/<%= basename %>.js'
+                }]
             }
         }
     });
@@ -62,7 +57,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-umd');
+    grunt.loadNpmTasks('grunt-umd-wrapper');
 
-    grunt.registerTask("default", ['concat', 'umd:build', 'uglify:build', 'cssmin:build']);
+    grunt.registerTask("default", ['concat', 'umd_wrapper:build', 'uglify:build', 'cssmin:build']);
 };

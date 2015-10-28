@@ -1,18 +1,18 @@
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module unless amdModuleId is set
-    define(["ol"], function (a0) {
-      return (root['MapScale'] = factory(a0));
-    });
-  } else if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory(require("ol"));
-  } else {
-    root['olMapScale'] = factory(ol);
-  }
-}(this, function (ol) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['openlayers'], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        
+        module.exports = factory(require('openlayers'));
+    } else {
+        // Browser globals (root is window)
+        root.olMapScale = factory(root.ol);
+    }
+}(this, function(ol) {
 
 /**
  * OpenLayers 3 Map scale control with scale line and scale string.
@@ -160,6 +160,7 @@ MapScale.prototype.updateElement_ = function() {
         this.scaleValue_.innerHTML = "1 : " + scale;
     }
 };
+
 return MapScale;
 
 }));
