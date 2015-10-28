@@ -1,0 +1,30 @@
+{
+  "name": "ol3-mapscale",
+  "version": "1.0.0",
+  "authors": [
+    "Vladimir Vershinin (https://github.com/ghettovoice)"
+  ],
+  "description": "OpenLayer 3 map scale control with scale string",
+  "main": "src/ol3-mapscale.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "ol3",
+    "openlayers",
+    "control",
+    "mapscale"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ghettovoice/ol3-mapscale",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
