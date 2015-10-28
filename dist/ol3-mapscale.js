@@ -75,16 +75,6 @@ function MapScale(options) {
 ol.inherits(MapScale, ol.control.Control);
 
 /**
- * @const {number}
- */
-MapScale.DOTS_PER_INCH = MapScale.calcDPI() || 96;
-
-/**
- * @const {number}
- */
-MapScale.INCHES_PER_METER = 39.37;
-
-/**
  * Calculates screen DPI based on css style
  * @returns {number|undefined}
  * @private
@@ -124,6 +114,16 @@ MapScale.render = function(mapEvent) {
 
     this.updateElement_();
 };
+
+/**
+ * @const {number}
+ */
+MapScale.DOTS_PER_INCH = MapScale.calcDPI() || 96;
+
+/**
+ * @const {number}
+ */
+MapScale.INCHES_PER_METER = 39.37;
 
 /**
  * @protected
