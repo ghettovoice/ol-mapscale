@@ -1,6 +1,6 @@
 # OpenLayers 3 map scale control
 
-Adds custom control to [ol3][https://github.com/openlayers/ol3] map. Shows scale line and scale string.
+Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale line and scale string.
 
 ## Installation and usage
 Install with
