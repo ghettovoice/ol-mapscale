@@ -1,1 +1,29 @@
-.ol-map-scale,.ol-map-scale *{color:#eee;font-size:10px}.ol-map-scale{position:absolute;bottom:8px;left:8px;background:#95b9e6;background:rgba(0,60,136,.4);overflow:hidden;padding:2px}.ol-map-scale>div{display:inline-block;padding:2px}.ol-map-scale .ol-map-scale-line-inner{border:1px solid #eee;border-top:none;text-align:center;margin:1px;will-change:contents,width}
+.ol-map-scale {
+    position   : absolute;
+    bottom     : 8px;
+    left       : 8px;
+    background : #95b9e6;
+    background : rgba(0, 60, 136, 0.4);
+    color      : #eeeeee;
+    font-size  : 10px;
+    overflow   : hidden;
+    padding    : 2px;
+}
+
+.ol-map-scale * {
+    color     : #eeeeee;
+    font-size : 10px;
+}
+
+.ol-map-scale > div {
+    display : inline-block;
+    padding : 2px;
+}
+
+.ol-map-scale .ol-map-scale-line-inner {
+    border      : 1px solid #eeeeee;
+    border-top  : none;
+    text-align  : center;
+    margin      : 1px;
+    will-change : contents, width;
+}
