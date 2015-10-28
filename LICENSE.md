@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2015 Vladimir Vershinin
+Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
