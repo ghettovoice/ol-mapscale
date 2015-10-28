@@ -1,5 +1,5 @@
 @module MapScale
-@export olMapScale
+@export ol.control.MapScale
 @import openlayers as ol
 
 @include ../dist/ol3-mapscale.js

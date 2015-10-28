@@ -6,15 +6,12 @@
  * @license MIT https://opensource.org/licenses/MIT
  * @copyright (c) 2015, Vladimir Vershinin https://github.com/ghettovoice
  */
-if (ol == null) {
-    throw new Error('OpenLayer 3 required');
-}
 /**
  * @param {Object} options
  * @constructor
  * @extends ol.control.Control
  */
-var MapScale = function(options) {
+function MapScale(options) {
     options || (options = {});
 
     var className = options.className !== undefined ? options.className : 'ol-map-scale';
