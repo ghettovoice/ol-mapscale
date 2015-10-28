@@ -57,6 +57,8 @@ function MapScale(options) {
     this.scaleLine_.on("change:units", this.handleUnitsChanged_, this);
 };
 ol.inherits(MapScale, ol.control.Control);
+// add reference to ol namespace to use as native control
+ol.control.MapScale = MapScale;
 
 /**
  * Calculates screen DPI based on css style

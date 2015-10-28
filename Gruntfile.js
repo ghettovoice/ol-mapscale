@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         cssmin: {
             build: {
                 files: [{
-                    src: '<%= paths.src %>/<%= basename %>.css',
+                    src: '<%= paths.dest %>/<%= basename %>.css',
                     dest: '<%= paths.dest %>/<%= basename %>.min.css'
                 }]
             }
