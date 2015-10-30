@@ -4,4 +4,4 @@
 
 @include ../dist/ol3-mapscale.js
 
-return MapScale;
+return ol.control.MapScale;

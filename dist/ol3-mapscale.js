@@ -23,144 +23,171 @@
  *          Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2015, Vladimir Vershinin https://github.com/ghettovoice
  */
-/**
- * @param {Object} options
- * @constructor
- * @extends ol.control.Control
- */
-function MapScale(options) {
-    options || (options = {});
-
-    var className = options.className !== undefined ? options.className : 'ol-map-scale';
-
-    var element = document.createElement("div");
-    element.classList.add(className);
-
-    var scaleLine = document.createElement("div");
-    element.appendChild(scaleLine);
+ol.control.MapScale = (function() {
+    "use strict";
 
     /**
-     * @type {ol.control.ScaleLine}
-     * @protected
+     * @param {Object} options
+     * @constructor
+     * @extends ol.control.Control
      */
-    this.scaleLine_ = new ol.control.ScaleLine({
-        target: scaleLine,
-        className: "ol-map-scale-line"
-    });
+    function MapScale(options) {
+        options || (options = {});
 
-    /**
-     * @type {Element}
-     * @protected
-     */
-    this.scaleValue_ = document.createElement("div");
-    this.scaleValue_.classList.add(className + "-value");
-    element.appendChild(this.scaleValue_);
+        var className = options.className !== undefined ? options.className : 'ol-map-scale';
 
-    /**
-     * @protected
-     * @type {?olx.ViewState}
-     */
-    this.viewState_ = null;
+        var element = document.createElement("div");
+        element.classList.add(className);
 
-    var render = options.render !== undefined ? options.render : MapScale.render;
+        var scaleLine = document.createElement("div");
+        element.appendChild(scaleLine);
 
-    ol.control.Control.call(this, {
-        element: element,
-        render: render,
-        target: options.target
-    });
+        /**
+         * @type {ol.control.ScaleLine}
+         * @protected
+         */
+        this.scaleLine_ = new ol.control.ScaleLine({
+            target: scaleLine,
+            className: "ol-map-scale-line"
+        });
 
-    this.scaleLine_.on("change:units", this.handleUnitsChanged_, this);
-};
-ol.inherits(MapScale, ol.control.Control);
-// add reference to ol namespace to use as native control
-ol.control.MapScale = MapScale;
+        /**
+         * @type {Element}
+         * @protected
+         */
+        this.scaleValue_ = document.createElement("div");
+        this.scaleValue_.classList.add(className + "-value");
+        element.appendChild(this.scaleValue_);
 
-/**
- * Calculates screen DPI based on css style
- * @returns {number|undefined}
- * @private
- */
-MapScale.calcDPI = function() {
-    if (!document) {
-        return;
-    }
-
-    var inch = document.createElement("div"),
-        dpi;
-
-    inch.style.width = "1in";
-    inch.style.height = "1in";
-    inch.style.position = "fixed";
-    inch.style.left = "-100%";
-
-    document.body.appendChild(inch);
-    dpi = inch.offsetWidth;
-    document.body.removeChild(inch);
-
-    return dpi;
-};
-
-/**
- * @param {ol.MapEvent} mapEvent
- * @static
- */
-MapScale.render = function(mapEvent) {
-    var frameState = mapEvent.frameState;
-
-    if (frameState == null) {
+        /**
+         * @protected
+         * @type {?olx.ViewState}
+         */
         this.viewState_ = null;
-    } else {
-        this.viewState_ = frameState.viewState;
+
+        var render = options.render !== undefined ? options.render : MapScale.render;
+
+        ol.control.Control.call(this, {
+            element: element,
+            render: render,
+            target: options.target
+        });
+
+        this.scaleLine_.on("change:units", this.handleUnitsChanged_, this);
     }
 
-    this.updateElement_();
-};
+    ol.inherits(MapScale, ol.control.Control);
 
-/**
- * @const {number}
- */
-MapScale.DOTS_PER_INCH = MapScale.calcDPI() || 96;
+    /**
+     * @param {ol.MapEvent} mapEvent
+     * @static
+     */
+    MapScale.render = function(mapEvent) {
+        var frameState = mapEvent.frameState;
 
-/**
- * @const {number}
- */
-MapScale.INCHES_PER_METER = 39.37;
+        if (frameState == null) {
+            this.viewState_ = null;
+        } else {
+            this.viewState_ = frameState.viewState;
+        }
 
-/**
- * @protected
- */
-MapScale.prototype.handleUnitsChanged_ = function() {
-    this.updateElement_();
-};
+        this.updateElement_();
+    };
 
-/**
- * @param {ol.Map} map
- */
-MapScale.prototype.setMap = function(map) {
-    this.scaleLine_.setMap(map);
-    ol.control.Control.prototype.setMap.call(this, map);
-};
+    /**
+     * @const {number}
+     */
+    MapScale.DOTS_PER_INCH = calcDPI() || 96;
 
-/**
- * @protected
- */
-MapScale.prototype.updateElement_ = function() {
-    var viewState = this.viewState_,
-        center, resolution, projection,
-        pointResolution, scale;
+    /**
+     * @const {number}
+     */
+    MapScale.INCHES_PER_METER = 39.37;
 
-    if (viewState) {
-        center = viewState.center,
-        resolution = viewState.resolution,
-        projection = viewState.projection,
-        pointResolution = projection.getMetersPerUnit() * projection.getPointResolution(resolution, center),
+    /**
+     * @protected
+     */
+    MapScale.prototype.handleUnitsChanged_ = function() {
+        this.updateElement_();
+    };
+
+    /**
+     * @param {ol.Map} map
+     */
+    MapScale.prototype.setMap = function(map) {
+        this.scaleLine_.setMap(map);
+        ol.control.Control.prototype.setMap.call(this, map);
+    };
+
+    /**
+     * Updates map scale string.
+     * @protected
+     */
+    MapScale.prototype.updateElement_ = function() {
+        var viewState = this.viewState_,
+            center, resolution, projection,
+            pointResolution, scale;
+
+        if (viewState) {
+            center = viewState.center;
+            resolution = viewState.resolution;
+            projection = viewState.projection;
+            pointResolution = projection.getMetersPerUnit() * projection.getPointResolution(resolution, center);
             scale = Math.round(pointResolution * MapScale.DOTS_PER_INCH * MapScale.INCHES_PER_METER);
 
-        this.scaleValue_.innerHTML = "1 : " + scale;
-    }
-};
+            this.scaleValue_.innerHTML = "1 : " + formatNumber(scale, 1);
+        }
+    };
 
-return MapScale;
+    /**
+     * Calculates screen DPI based on css style
+     * @returns {number|undefined}
+     * @private
+     */
+    function calcDPI() {
+        if (!document) {
+            return;
+        }
+
+        var inch = document.createElement("div"),
+            dpi;
+
+        inch.style.width = "1in";
+        inch.style.height = "1in";
+        inch.style.position = "fixed";
+        inch.style.left = "-100%";
+
+        document.body.appendChild(inch);
+        dpi = inch.offsetWidth;
+        document.body.removeChild(inch);
+
+        return dpi;
+    }
+
+    /**
+     * Formats number.
+     * @param num
+     * @param digits
+     * @returns {string}
+     * @private
+     */
+    function formatNumber(num, digits) {
+        var units = ['k', 'M', 'G'],
+            decimal;
+
+        for (var i = units.length - 1; i >= 0; i--) {
+            decimal = Math.pow(1000, i + 1);
+            if (num <= -decimal || num >= decimal) {
+                return +(num / decimal).toFixed(digits) + units[i];
+            }
+        }
+
+        return num;
+    }
+
+    return MapScale;
+}());
+
+return ol.control.MapScale;
 
 }));
