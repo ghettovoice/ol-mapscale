@@ -129,13 +129,13 @@ ol.control.MapScale = (function() {
             pointResolution, scale;
 
         if (viewState) {
-            center = viewState.center;
+//            center = viewState.center;
             resolution = viewState.resolution;
             projection = viewState.projection;
-            pointResolution = projection.getMetersPerUnit() * projection.getPointResolution(resolution, center);
+            pointResolution = projection.getMetersPerUnit() * resolution;//projection.getPointResolution(resolution, center);
             scale = Math.round(pointResolution * MapScale.DOTS_PER_INCH * MapScale.INCHES_PER_METER);
 
-            this.scaleValue_.innerHTML = "1 : " + formatNumber(scale, 1);
+            this.scaleValue_.innerHTML = "1 : " + formatNumber(scale);
         }
     };
 
@@ -178,7 +178,7 @@ ol.control.MapScale = (function() {
         for (var i = units.length - 1; i >= 0; i--) {
             decimal = Math.pow(1000, i + 1);
             if (num <= -decimal || num >= decimal) {
-                return +(num / decimal).toFixed(digits) + units[i];
+                return +(num / decimal).toFixed(digits || 0) + units[i];
             }
         }
 
