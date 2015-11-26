@@ -34,6 +34,8 @@ ol.control.MapScale = (function() {
     function MapScale(options) {
         options || (options = {});
 
+        MapScale.DOTS_PER_INCH = calcDPI();
+
         var className = options.className !== undefined ? options.className : 'ol-map-scale';
 
         var element = document.createElement("div");
@@ -97,7 +99,7 @@ ol.control.MapScale = (function() {
     /**
      * @const {number}
      */
-    MapScale.DOTS_PER_INCH = calcDPI() || 96;
+    MapScale.DOTS_PER_INCH = 96;
 
     /**
      * @const {number}
