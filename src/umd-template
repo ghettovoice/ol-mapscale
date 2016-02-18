@@ -1,0 +1,17 @@
+(function (%ROOT%, factory) {
+    if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        %CJS_REQUIRES%
+        module.exports = factory(%CJS_ARGS%);
+    } else if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define([%AMD_REQUIRES%], factory);
+    } else {
+        // Browser globals (root is window)
+        %ROOT%.%EXPORT_NAME% = factory(%BROWSER_ARGS%);
+    }
+}(this, function(%ARGS%) {
+%SRC%
+}));

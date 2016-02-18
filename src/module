@@ -2,6 +2,6 @@
 @export ol.control.MapScale
 @import openlayers as ol
 
-@include ../dist/ol3-mapscale.js
+@include ../src/mapscale.js
 
-return ol.control.MapScale;
+return MapScale;

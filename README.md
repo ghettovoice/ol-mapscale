@@ -15,7 +15,7 @@ or
     bower install ol3-mapscale
 ```    
 
-Available as AMD module or as global object `olMapScale`. Requires `openlayers` as dependency.
+Available as AMD module or as global in `ol.control.MapScale`. Requires `openlayers` as dependency.
 
 AMD
 

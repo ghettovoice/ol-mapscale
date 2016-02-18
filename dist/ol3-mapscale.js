@@ -1,13 +1,13 @@
 (function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['openlayers'], factory);
-    } else if (typeof exports === 'object') {
+    if (typeof exports === 'object') {
         // Node. Does not work with strict CommonJS, but
         // only CommonJS-like enviroments that support module.exports,
         // like Node.
         
         module.exports = factory(require('openlayers'));
+    } else if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['openlayers'], factory);
     } else {
         // Browser globals (root is window)
         root.ol.control.MapScale = factory(root.ol);
@@ -23,7 +23,7 @@
  *          Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2015, Vladimir Vershinin https://github.com/ghettovoice
  */
-ol.control.MapScale = (function() {
+var MapScale = (function() {
     "use strict";
 
     /**
@@ -190,6 +190,6 @@ ol.control.MapScale = (function() {
     return MapScale;
 }());
 
-return ol.control.MapScale;
+return MapScale;
 
 }));

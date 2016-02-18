@@ -1,8 +1,8 @@
 {
   "name": "ol3-mapscale",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "OpenLayers 3 map scale control with scale string",
-  "main": "src/ol3-mapscale.js",
+  "main": "dist/ol3-mapscale.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
