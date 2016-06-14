@@ -1,4 +1,4 @@
-# OpenLayers 3 map scale control
+# Map scale control with scale string for OpenLayer 3
 
 Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale line and scale string.
 
@@ -6,13 +6,13 @@ Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale
 Install with
 
 ```shell    
-    npm install ol3-mapscale
+    npm install ol3-map-scale
 ```
 
 or
 
 ```shell
-    bower install ol3-mapscale
+    bower install ol3-map-scale
 ```    
 
 Available as AMD module or as global object `olMapScale`. Requires `openlayers` as dependency.
@@ -20,7 +20,7 @@ Available as AMD module or as global object `olMapScale`. Requires `openlayers` 
 AMD
 
 ```js
-define(['openlayers', 'ol3-mapscale'], function(ol, olMapScale) {
+define(['openlayers', 'ol3-map-scale'], function(ol, olMapScale) {
     // your code here
 });
 ```

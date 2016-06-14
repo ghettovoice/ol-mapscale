@@ -1,33 +1,60 @@
 {
-  "name": "ol3-mapscale",
-  "version": "1.0.0",
-  "description": "OpenLayers 3 map scale control with scale string",
-  "main": "src/ol3-mapscale.js",
+  "name": "ol3-map-scale",
+  "version": "2.0.0",
+  "description": "Map scale control with scale string for OpenLayer 3",
+  "main": "dist/bundle.js",
   "scripts": {
+    "release": "webpack --release --verbose",
+    "build": "webpack --build --verbose",
+    "serv": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/ghettovoice/ol3-mapscale",
+  "homepage": "https://github.com/ghettovoice/ol3-map-scale",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghettovoice/ol3-mapscale.git"
+    "url": "https://github.com/ghettovoice/ol3-map-scale.git"
   },
   "keywords": [
     "ol3",
     "openlayers",
-    "control",
-    "mapscale"
+    "ol3-map-scale"
   ],
-  "author": "Vladimir Vershinin (https://github.com/ghettovoice)",
+  "author": "Vladimir Vershinin <ghettovoice@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ghettovoice/ol3-mapscale/issues"
+      "url": "https://github.com/ghettovoice/ol3-map-scale/issues"
   },
+  "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-cli": "~0.1.13",
-    "grunt-contrib-uglify": "~0.10.0",
-    "grunt-contrib-cssmin": "~0.14.0",
-    "grunt-contrib-concat": "~0.5.1",
-    "grunt-umd-wrapper": "~0.4.0"
+    "autoprefixer": "^6.3.6",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chalk": "^1.1.3",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "glob": "^7.0.3",
+    "lodash": "^4.13.1",
+    "node-sass": "^3.7.0",
+    "openlayers": "^3.16.0",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
+    "progress-bar-webpack-plugin": "^1.8.0",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-flow-strip-types"
+    ]
   }
 }
