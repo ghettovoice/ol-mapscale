@@ -31,13 +31,13 @@ In Browser environment it is available as `ol.control.MapScale`.
 
 | Option              | Type                            | Description                                                                            |
 |:--------------------|:--------------------------------|:---------------------------------------------------------------------------------------|
-| target              | _Element | string | undefined_  | Specify a target if you want the control to be rendered outside of the map's viewport. |
-| className           | _string | string[] | undefined_ | Custom class name of the control container element. Default is `ol-mapscale`.          |
-| scaleLineClassName  | _string | string[] | undefined_ | Custom class name of the scale line container element. Default is `ol-scale-line`.     |
-| scaleValueClassName | _string | string[] | undefined_ | Custom class name of the scale value container element. Default is `ol-scale-value`.   |
-| scaleLine           | _boolean | undefined_           | Show/hide scale line control. Default is true.                                         |
-| units               | _string[] | undefined_          | Array of scale value units. Default is `['k', 'M', 'G']`.                              |
-| digits              | _number | undefined_            | The number of digits to appear after the decimal point.                                |
+| target              | _Element &#124; string &#124; undefined_  | Specify a target if you want the control to be rendered outside of the map's viewport. |
+| className           | _string &#124; string[] &#124; undefined_ | Custom class name of the control container element. Default is `ol-mapscale`.          |
+| scaleLineClassName  | _string &#124; string[] &#124; undefined_ | Custom class name of the scale line container element. Default is `ol-scale-line`.     |
+| scaleValueClassName | _string &#124; string[] &#124; undefined_ | Custom class name of the scale value container element. Default is `ol-scale-value`.   |
+| scaleLine           | _boolean &#124; undefined_           | Show/hide scale line control. Default is true.                                         |
+| units               | _string[] &#124; undefined_          | Array of scale value units. Default is `['k', 'M', 'G']`.                              |
+| digits              | _number &#124; undefined_            | The number of digits to appear after the decimal point. Default is 0.                               |
 
 ### Example usage:
 ```js

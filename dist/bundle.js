@@ -126,7 +126,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @property {string | string[] | undefined} scaleValueClassName Custom class name of the scale value container element. Default is `ol-scale-value`.
 	 * @property {boolean | undefined} scaleLine Show/hide scale line control. Default is true.
 	 * @property {string[] | undefined} units Array of scale value units. Default is `['k', 'M', 'G']`.
-	 * @property {number | undefined} digits The number of digits to appear after the decimal point.
+	 * @property {number | undefined} digits The number of digits to appear after the decimal point. Default is 0.
 	 */
 	var ControlOptions;
 
