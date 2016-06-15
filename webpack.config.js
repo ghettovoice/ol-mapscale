@@ -30,7 +30,7 @@ const nodeModulesDir = path.join(__dirname, 'node_modules');
 const srcDir = path.join(__dirname, 'src');
 const outDir = path.join(__dirname, 'dist');
 const bundleName = RELEASE ? 'bundle.min' : 'bundle';
-const exportName = _.camelCase(packageJson.name);
+const exportName = ['ol', 'control', 'MapScale'];
 const entry = path.join(srcDir, 'index.js');
 
 const banner =
@@ -47,7 +47,7 @@ const plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new ProgressBarPlugin({
-        format: ' build ' + chalk.magenta.bold('[ol3-map-scale]') + ' ' + chalk.cyan.bold('[:bar]') +
+        format: ' build ' + chalk.magenta.bold('[ol3-mapscale]') + ' ' + chalk.cyan.bold('[:bar]') +
                 ' ' + chalk.green.bold(':percent') + ' (:elapsed seconds)'
     }),
     new ExtractTextPlugin(`${bundleName}.css`, true)

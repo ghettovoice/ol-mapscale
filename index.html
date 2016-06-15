@@ -32,11 +32,10 @@
                     new ol.layer.Tile({
                         source: new ol.source.MapQuest({ layer: 'osm' })
                     })
-                ],
-                controls: ol.control.defaults().extend([
-                    new ol3MapScale.Control()
-                ])
+                ]
             });
+
+            map.addControl(new ol.control.MapScale());
         });
     </script>
 </body>

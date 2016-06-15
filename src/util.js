@@ -41,18 +41,17 @@ export function calculateDPI() {
 /**
  * Formats number.
  *
- * @param num
- * @param digits
+ * @param {number} num
+ * @param {number} digits
+ * @param {string[]} units
  * @returns {string}
  */
-export function formatNumber(num, digits) {
-    const units = ['k', 'M', 'G'];
-
+export function formatNumber(num, digits = 0, units = ['k', 'M', 'G']) {
     for (var i = units.length - 1; i >= 0; i--) {
         const decimal = Math.pow(1000, i + 1);
 
         if (num <= -decimal || num >= decimal) {
-            return parseInt(num / decimal, 10).toFixed(digits || 0) + units[i];
+            return parseFloat(num / decimal).toFixed(digits) + units[i];
         }
     }
 

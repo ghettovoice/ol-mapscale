@@ -1,9 +1,9 @@
 /*!
  * OpenLayers 3 map scale control with scale string.
  * 
- * @package ol3-map-scale
+ * @package ol3-mapscale
  * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @version 2.0.0
+ * @version 1.1.0
  * @licence MIT https://opensource.org/licenses/MIT
  *          Based on OpenLayers 3. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2016, Vladimir Vershinin <ghettovoice@gmail.com>
@@ -14,9 +14,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["ol"], factory);
 	else if(typeof exports === 'object')
-		exports["ol3MapScale"] = factory(require("ol"));
+		exports["MapScale"] = factory(require("ol"));
 	else
-		root["ol3MapScale"] = factory(root["ol"]);
+		root["ol"] = root["ol"] || {}, root["ol"]["control"] = root["ol"]["control"] || {}, root["ol"]["control"]["MapScale"] = factory(root["ol"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_4__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -69,7 +69,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Control = undefined;
 
 	var _control = __webpack_require__(1);
 
@@ -84,12 +83,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * A map scale control with scale string.
 	 *
 	 * @author Vladimir Vershinin <ghettovoice@gmail.com>
-	 * @version 2.0.0
 	 * @licence MIT https://opensource.org/licenses/MIT
 	 *          Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
 	 * @copyright (c) 2016, Vladimir Vershinin
 	 */
-	exports.Control = _control2.default;
+	exports.default = _control2.default;
+	module.exports = exports['default'];
 
 /***/ },
 /* 1 */
@@ -98,7 +97,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -121,12 +120,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * @typedef {Object} ControlOptions
-	 * @property {string|string[]|undefined} className Custom class name of the control container element. Default is `ol-mapscale`.
-	 * @property {string|string[]|undefined} scaleLineClassName Custom class name of the scale line container element. Default is `ol-scale-line`.
-	 * @property {string|string[]|undefined} scaleValueClassName Custom class name of the scale value container element. Default is `ol-scale-value`.
-	 * @property {boolean|undefined} scaleLine Show/hide scale line control. Default is true.
-	 * @property {function|undefined} render Function called when the control should be re-rendered. This is called in a requestAnimationFrame callback.
 	 * @property {Element | string | undefined} target Specify a target if you want the control to be rendered outside of the map's viewport.
+	 * @property {string | string[] | undefined} className Custom class name of the control container element. Default is `ol-mapscale`.
+	 * @property {string | string[] | undefined} scaleLineClassName Custom class name of the scale line container element. Default is `ol-scale-line`.
+	 * @property {string | string[] | undefined} scaleValueClassName Custom class name of the scale value container element. Default is `ol-scale-value`.
+	 * @property {boolean | undefined} scaleLine Show/hide scale line control. Default is true.
+	 * @property {string[] | undefined} units Array of scale value units. Default is `['k', 'M', 'G']`.
+	 * @property {number | undefined} digits The number of digits to appear after the decimal point.
 	 */
 	var ControlOptions;
 
@@ -137,129 +137,145 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * MapScale control class.
 	 *
 	 * @class
-	 * @extends ol.control.Control
+	 * @extends {ol.control.Control}
 	 * @author Vladimir Vershinin
 	 */
 
 	var Control = function (_ol$control$Control) {
-	    _inherits(Control, _ol$control$Control);
+	  _inherits(Control, _ol$control$Control);
+
+	  /**
+	   * @param {ControlOptions} options
+	   */
+
+	  function Control() {
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	    _classCallCheck(this, Control);
+
+	    var className = options.className || 'ol-mapscale';
+	    var scaleLineClassName = options.scaleLineClassName || "ol-scale-line";
+	    var scaleValueClassName = options.scaleLineClassName || "ol-scale-value";
+	    var render = Control.render;
+	    var target = options.target;
+
+	    var element = (0, _util.createElement)('div', className);
 
 	    /**
-	     * @param {ControlOptions} options
+	     * @type {string[]}
+	     * @private
 	     */
 
-	    function Control() {
-	        var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Control).call(this, {
+	      element: element,
+	      render: render,
+	      target: target
+	    }));
 
-	        _classCallCheck(this, Control);
+	    _this.units_ = options.units;
+	    /**
+	     * @type {number}
+	     * @private
+	     */
+	    _this.digits_ = options.digits;
+	    /**
+	     * @type {Element}
+	     * @private
+	     */
+	    _this.scaleValueElement_ = (0, _util.createElement)('div', scaleValueClassName);
+	    element.appendChild(_this.scaleValueElement_);
 
-	        var className = options.className || 'ol-map-scale';
-	        var scaleLineClassName = options.scaleLineClassName || "ol-scale-line";
-	        var scaleValueClassName = options.scaleLineClassName || "ol-scale-value";
-	        var render = options.render !== undefined ? options.render : Control.render;
-	        var target = options.target;
+	    /**
+	     * @private
+	     * @type {olx.ViewState}
+	     */
+	    _this.viewState_ = undefined;
 
-	        var element = (0, _util.createElement)('div', className);
+	    /**
+	     * @type {ol.control.ScaleLine}
+	     * @protected
+	     */
+	    _this.scaleLine_ = undefined;
+	    if (options.scaleLine === undefined || options.scaleLine) {
+	      var scaleLineElement = (0, _util.createElement)('div', 'ol-scale-line-target');
+	      element.appendChild(scaleLineElement);
 
-	        /**
-	         * @type {Element}
-	         * @private
-	         */
+	      _this.scaleLine_ = new _openlayers2.default.control.ScaleLine({
+	        target: scaleLineElement,
+	        className: scaleLineClassName
+	      });
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Control).call(this, {
-	            element: element,
-	            render: render,
-	            target: target
-	        }));
+	      _this.scaleLine_.on("change:units", _this.handleUnitsChanged_.bind(_this));
+	    }
+	    return _this;
+	  }
 
-	        _this.scaleValueElement_ = (0, _util.createElement)('div', scaleValueClassName);
-	        element.appendChild(_this.scaleValueElement_);
+	  /**
+	   * @param {ol.MapEvent} mapEvent
+	   * @this {Control}
+	   */
 
-	        var scaleLineElement = (0, _util.createElement)('div', 'ol-scale-line-target');
-	        element.appendChild(scaleLineElement);
-	        /**
-	         * @type {ol.control.ScaleLine}
-	         * @protected
-	         */
-	        _this.scaleLine_ = new _openlayers2.default.control.ScaleLine({
-	            target: scaleLineElement,
-	            className: scaleLineClassName
-	        });
-	        /**
-	         * @private
-	         * @type {olx.ViewState}
-	         */
-	        _this.viewState_ = null;
 
-	        _this.scaleLine_.on("change:units", _this.handleUnitsChanged_.bind(_this));
-	        return _this;
+	  _createClass(Control, [{
+	    key: 'setMap',
+
+
+	    /**
+	     * @param {ol.Map} map
+	     */
+	    value: function setMap(map) {
+	      this.scaleLine_ && this.scaleLine_.setMap(map);
+	      _get(Object.getPrototypeOf(Control.prototype), 'setMap', this).call(this, map);
 	    }
 
 	    /**
-	     * @param {ol.MapEvent} mapEvent
-	     * @this {Control}
+	     * @private
 	     */
 
+	  }, {
+	    key: 'handleUnitsChanged_',
+	    value: function handleUnitsChanged_() {
+	      this.updateElement_();
+	    }
 
-	    _createClass(Control, [{
-	        key: 'setMap',
+	    /**
+	     * @private
+	     */
 
+	  }, {
+	    key: 'updateElement_',
+	    value: function updateElement_() {
+	      var viewState = this.viewState_;
 
-	        /**
-	         * @param {ol.Map} map
-	         */
-	        value: function setMap(map) {
-	            this.scaleLine_.setMap(map);
-	            _get(Object.getPrototypeOf(Control.prototype), 'setMap', this).call(this, map);
-	        }
+	      if (viewState) {
+	        var resolution = viewState.resolution;
+	        var projection = viewState.projection;
+	        var pointResolution = projection.getMetersPerUnit() * resolution;
+	        var scale = Math.round(pointResolution * DOTS_PER_INCH * INCHES_PER_METER);
 
-	        /**
-	         * @private
-	         */
+	        this.scaleValueElement_.innerHTML = "1 : " + (0, _util.formatNumber)(scale, this.digits_, this.units_);
+	      }
+	    }
+	  }], [{
+	    key: 'render',
+	    value: function render(mapEvent) {
+	      var frameState = mapEvent.frameState;
 
-	    }, {
-	        key: 'handleUnitsChanged_',
-	        value: function handleUnitsChanged_() {
-	            this.updateElement_();
-	        }
+	      if (frameState == null) {
+	        this.viewState_ = null;
+	      } else {
+	        this.viewState_ = frameState.viewState;
+	      }
 
-	        /**
-	         * @private
-	         */
+	      this.updateElement_();
+	    }
+	  }]);
 
-	    }, {
-	        key: 'updateElement_',
-	        value: function updateElement_() {
-	            var viewState = this.viewState_;
-
-	            if (viewState) {
-	                var resolution = viewState.resolution;
-	                var projection = viewState.projection;
-	                var pointResolution = projection.getMetersPerUnit() * resolution;
-	                var scale = Math.round(pointResolution * DOTS_PER_INCH * INCHES_PER_METER);
-
-	                this.scaleValueElement_.innerHTML = "1 : " + (0, _util.formatNumber)(scale);
-	            }
-	        }
-	    }], [{
-	        key: 'render',
-	        value: function render(mapEvent) {
-	            var frameState = mapEvent.frameState;
-
-	            if (frameState == null) {
-	                this.viewState_ = null;
-	            } else {
-	                this.viewState_ = frameState.viewState;
-	            }
-
-	            this.updateElement_();
-	        }
-	    }]);
-
-	    return Control;
+	  return Control;
 	}(_openlayers2.default.control.Control);
 
 	exports.default = Control;
+	module.exports = exports['default'];
 
 /***/ },
 /* 2 */
@@ -316,18 +332,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Formats number.
 	 *
-	 * @param num
-	 * @param digits
+	 * @param {number} num
+	 * @param {number} digits
+	 * @param {string[]} units
 	 * @returns {string}
 	 */
-	function formatNumber(num, digits) {
-	    var units = ['k', 'M', 'G'];
+	function formatNumber(num) {
+	    var digits = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+	    var units = arguments.length <= 2 || arguments[2] === undefined ? ['k', 'M', 'G'] : arguments[2];
 
 	    for (var i = units.length - 1; i >= 0; i--) {
 	        var decimal = Math.pow(1000, i + 1);
 
 	        if (num <= -decimal || num >= decimal) {
-	            return parseInt(num / decimal, 10).toFixed(digits || 0) + units[i];
+	            return parseFloat(num / decimal).toFixed(digits) + units[i];
 	        }
 	    }
 

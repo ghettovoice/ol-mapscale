@@ -2,33 +2,58 @@
 
 Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale line and scale string.
 
-## Installation and usage
-Install with
+## Installation
 
-```shell    
-    npm install ol3-map-scale
-```
-
-or
+Install it thought NPM:
 
 ```shell
-    bower install ol3-map-scale
-```    
-
-Available as AMD module or as global object `olMapScale`. Requires `openlayers` as dependency.
-
-AMD
-
-```js
-define(['openlayers', 'ol3-map-scale'], function(ol, olMapScale) {
-    // your code here
-});
+npm install ol3-mapscale
 ```
 
-TODO:   
-describe other options ...  
-add examples  
-add rounding to concrete list of scales
+Or download the latest version archive and add it with script tag:
 
+```html
+<script src="ol3-mapscale/dist/bundle.min.js"></script>
+```
 
+## Usage
 
+Plugin is packed into UMD wrapper, import it with CommonJS or ES6:
+
+```js
+import MapScale from 'ol3-mapscale';
+const MapScale = require('ol3-mapscale');
+```
+
+In Browser environment it is available as `ol.control.MapScale`.
+
+### Options
+
+| Option              | Type                            | Description                                                                            |
+|:--------------------|:--------------------------------|:---------------------------------------------------------------------------------------|
+| target              | _Element | string | undefined_  | Specify a target if you want the control to be rendered outside of the map's viewport. |
+| className           | _string | string[] | undefined_ | Custom class name of the control container element. Default is `ol-mapscale`.          |
+| scaleLineClassName  | _string | string[] | undefined_ | Custom class name of the scale line container element. Default is `ol-scale-line`.     |
+| scaleValueClassName | _string | string[] | undefined_ | Custom class name of the scale value container element. Default is `ol-scale-value`.   |
+| scaleLine           | _boolean | undefined_           | Show/hide scale line control. Default is true.                                         |
+| units               | _string[] | undefined_          | Array of scale value units. Default is `['k', 'M', 'G']`.                              |
+| digits              | _number | undefined_            | The number of digits to appear after the decimal point.                                |
+
+### Example usage:
+```js
+const map = new ol.Map({
+    target: 'map',
+    view: new ol.View({
+        projectoin: 'EPSG:3857',
+        center: [4189972.14, 7507950.67],
+        zoom: 5
+    }),
+    layers: [
+        new ol.layer.Tile({
+            source: new ol.source.MapQuest({ layer: 'osm' })
+        })
+    ]
+});
+
+map.addControl(new ol.control.MapScale());
+```
