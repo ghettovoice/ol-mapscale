@@ -14,7 +14,7 @@ import { createElement, calculateDPI, formatNumber } from './util';
  */
 var ControlOptions;
 
-const DOTS_PER_INCH = calculateDPI() || 96;
+const DOTS_PER_INCH = 96;
 const INCHES_PER_METER = 39.37;
 
 /**

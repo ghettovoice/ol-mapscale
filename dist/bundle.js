@@ -130,7 +130,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var ControlOptions;
 
-	var DOTS_PER_INCH = (0, _util.calculateDPI)() || 96;
+	var DOTS_PER_INCH = 96;
 	var INCHES_PER_METER = 39.37;
 
 	/**

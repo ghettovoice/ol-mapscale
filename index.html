@@ -20,23 +20,21 @@
     <script src="node_modules/openlayers/dist/ol.js"></script>
     <script src="dist/bundle.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const map = new ol.Map({
-                target: 'map',
-                view: new ol.View({
-                    projectoin: 'EPSG:3857',
-                    center: [4189972.14, 7507950.67],
-                    zoom: 5
-                }),
-                layers: [
-                    new ol.layer.Tile({
-                        source: new ol.source.MapQuest({ layer: 'osm' })
-                    })
-                ]
-            });
-
-            map.addControl(new ol.control.MapScale());
+        const map = new ol.Map({
+            target: 'map',
+            view: new ol.View({
+                projectoin: 'EPSG:3857',
+                center: [4189972.14, 7507950.67],
+                zoom: 5
+            }),
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.MapQuest({ layer: 'osm' })
+                })
+            ]
         });
+
+        map.addControl(new ol.control.MapScale());
     </script>
 </body>
 </html>
