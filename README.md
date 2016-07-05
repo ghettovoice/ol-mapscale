@@ -1,3 +1,5 @@
+[![view on npm](http://img.shields.io/npm/v/ol3-mapscale.svg)](https://www.npmjs.org/package/ol3-mapscale)
+
 # Map scale control with scale string for OpenLayer 3
 
 Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale line and scale string.

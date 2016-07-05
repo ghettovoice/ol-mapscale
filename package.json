@@ -1,6 +1,6 @@
 {
   "name": "ol3-mapscale",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Map scale control with scale string for OpenLayer 3",
   "main": "dist/bundle.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "glob": "^7.0.3",
     "lodash": "^4.13.1",
     "node-sass": "^3.7.0",
-    "openlayers": "^3.16.0",
+    "openlayers": "^3.17.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
