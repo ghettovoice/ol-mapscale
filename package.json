@@ -7,7 +7,7 @@
     "release": "webpack --release --verbose",
     "build": "webpack --build --verbose",
     "serv": "webpack-dev-server",
-    "test": "mocha-phantomjs tests/index.html"
+    "test": "mocha-phantomjs tests/test.html"
   },
   "homepage": "https://github.com/ghettovoice/ol3-mapscale",
   "repository": {
