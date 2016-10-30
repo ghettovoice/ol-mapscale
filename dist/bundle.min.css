@@ -1,11 +1,12 @@
 /*!
- * OpenLayers 3 map scale control with scale string.
+ * Map scale control with scale string for OpenLayer 3.
  * 
  * @package ol3-mapscale
  * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @version 1.1.2
+ * @version 1.2.0
  * @licence MIT https://opensource.org/licenses/MIT
  *          Based on OpenLayers 3. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2016, Vladimir Vershinin <ghettovoice@gmail.com>
  */
 .ol-mapscale{position:absolute;bottom:8px;left:8px;background:#95b9e6;background:rgba(0,60,136,.4);overflow:hidden;padding:2px}.ol-mapscale,.ol-mapscale *{color:#eee;font-size:10px}.ol-mapscale>div{display:inline-block;padding:2px}.ol-mapscale .ol-scale-line{position:static;background:none;padding:0}.ol-mapscale .ol-scale-line-inner{border:1px solid #eee;border-top:none;text-align:center;margin:1px;will-change:contents,width}
+/*# sourceMappingURL=bundle.min.css.map*/

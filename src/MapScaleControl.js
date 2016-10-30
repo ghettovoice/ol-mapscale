@@ -3,7 +3,7 @@ import ol from "openlayers";
 import { createElement, calculateDPI, formatNumber } from './util';
 
 /**
- * @typedef {Object} ControlOptions
+ * @typedef {Object} MapScaleControlOptions
  * @property {Element | string | undefined} target Specify a target if you want the control to be rendered outside of the map's viewport.
  * @property {string | string[] | undefined} className Custom class name of the control container element. Default is `ol-mapscale`.
  * @property {string | string[] | undefined} scaleLineClassName Custom class name of the scale line container element. Default is `ol-scale-line`.
@@ -12,7 +12,7 @@ import { createElement, calculateDPI, formatNumber } from './util';
  * @property {string[] | undefined} units Array of scale value units. Default is `['k', 'M', 'G']`.
  * @property {number | undefined} digits The number of digits to appear after the decimal point. Default is 0.
  */
-var ControlOptions;
+var MapScaleControlOptions;
 
 const DOTS_PER_INCH = 96;
 const INCHES_PER_METER = 39.37;
@@ -24,15 +24,15 @@ const INCHES_PER_METER = 39.37;
  * @extends {ol.control.Control}
  * @author Vladimir Vershinin
  */
-export default class Control extends ol.control.Control {
+export default class MapScaleControl extends ol.control.Control {
     /**
-     * @param {ControlOptions} options
+     * @param {MapScaleControlOptions} options
      */
     constructor(options = {}) {
         const className = options.className || 'ol-mapscale';
         const scaleLineClassName = options.scaleLineClassName || "ol-scale-line";
         const scaleValueClassName = options.scaleLineClassName || "ol-scale-value";
-        const render = Control.render;
+        const render = MapScaleControl.render;
         const target = options.target;
 
         const element = createElement('div', className);
@@ -85,7 +85,7 @@ export default class Control extends ol.control.Control {
 
     /**
      * @param {ol.MapEvent} mapEvent
-     * @this {Control}
+     * @this {MapScaleControl}
      */
     static render(mapEvent) {
         const frameState = mapEvent.frameState;

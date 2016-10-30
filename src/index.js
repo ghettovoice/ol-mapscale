@@ -7,7 +7,7 @@
  *          Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2016, Vladimir Vershinin
  */
-import Control from './control';
+import Control from './MapScaleControl';
 import './control.scss';
 
 export default Control;

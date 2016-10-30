@@ -34,7 +34,7 @@ const exportName = ['ol', 'control', 'MapScale'];
 const entry = path.join(srcDir, 'index.js');
 
 const banner =
-`OpenLayers 3 map scale control with scale string.
+`${packageJson.description}.
 
 @package ${packageJson.name}
 @author ${packageJson.author}
@@ -82,9 +82,8 @@ if (DEBUG) {
 }
 
 var cssLoader = [
-    'css?' + ( RELEASE ? 'minimize&' : 'sourceMap&') + 'importLoaders=1',
+    'css?' + ( RELEASE ? 'minimize&' : '') + 'sourceMap&importLoaders=1',
     'postcss',
-    'resolve-url?' + ( BUILD || DEBUG ? 'sourceMap' : '' ),
     'sass?sourceMap'
 ];
 
@@ -96,7 +95,7 @@ if (DEBUG) {
 }
 
 module.exports = {
-    devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
+    devtool: DEBUG ? '#cheap-module-eval-source-map' : '#source-map',
     devServer: {
         contentBase: __dirname,
         hot: true,
@@ -136,7 +135,7 @@ module.exports = {
     },
     resolve: {
         root: [nodeModulesDir],
-        extensions: ['', '.tsx', '.ts', '.jsx', '.js', '.json', '.scss', '.css']
+        extensions: ['', '.jsx', '.js', '.json', '.scss', '.css']
     },
     node: {
         console: false,
@@ -150,10 +149,6 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.tsx?$/,
-            exclude: [outDir],
-            loaders: ['ts']
-        }, {
             test: /\.jsx?$/,
             exclude: [outDir],
             loaders: ['babel']
