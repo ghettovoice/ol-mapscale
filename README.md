@@ -7,10 +7,11 @@ Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale
 
 ## Installation
 
-Install it thought NPM:
+Install it thought NPM or Bower:
 
 ```shell
 npm install ol3-mapscale
+bower install ol3-mapscale
 ```
 
 Or download the latest version archive and add it with script tag:
