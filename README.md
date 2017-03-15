@@ -1,23 +1,23 @@
-[![Build Status](https://travis-ci.org/ghettovoice/ol3-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol3-mapscale)
-[![view on npm](http://img.shields.io/npm/v/ol3-mapscale.svg)](https://www.npmjs.org/package/ol3-mapscale)
+[![Build Status](https://travis-ci.org/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol-mapscale)
+[![view on npm](http://img.shields.io/npm/v/ol-mapscale.svg)](https://www.npmjs.org/package/ol-mapscale)
 
-# Map scale control with scale string for OpenLayer 3
+# Map scale control with scale string for OpenLayer
 
-Adds custom control to [ol3](https://github.com/openlayers/ol3) map. Shows scale line and scale string.
+Adds custom control to [OpenLayers](https://openlayers.org/) map. Shows scale line and scale string.
 
 ## Installation
 
 Install it thought NPM or Bower:
 
 ```shell
-npm install ol3-mapscale
-bower install ol3-mapscale
+npm install ol-mapscale
+bower install ol-mapscale
 ```
 
 Or download the latest version archive and add it with script tag:
 
 ```html
-<script src="ol3-mapscale/dist/bundle.min.js"></script>
+<script src="ol-mapscale/dist/bundle.min.js"></script>
 ```
 
 ## Usage
@@ -25,8 +25,8 @@ Or download the latest version archive and add it with script tag:
 Plugin is packed into UMD wrapper, import it with CommonJS or ES6:
 
 ```js
-import MapScaleControl from 'ol3-mapscale';
-const MapScaleControl = require('ol3-mapscale');
+import MapScaleControl from 'ol-mapscale';
+const MapScaleControl = require('ol-mapscale');
 ```
 
 In Browser environment it is available as `ol.control.MapScale`.
@@ -54,7 +54,7 @@ const map = new ol.Map({
     }),
     layers: [
         new ol.layer.Tile({
-            source: new ol.source.MapQuest({ layer: 'osm' })
+            source: new ol.source.OSM()
         })
     ]
 });

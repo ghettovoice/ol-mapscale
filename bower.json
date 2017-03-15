@@ -1,20 +1,20 @@
 {
-  "name": "ol3-mapscale",
-  "description": "Map scale control with scale string for OpenLayer 3",
+  "name": "ol-mapscale",
+  "description": "Map scale control with scale string for OpenLayer",
   "main": "dist/bundle.js",
   "authors": [
     "Vladimir Vershinin <ghettovoice@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
-    "ol3",
+    "ol",
     "openlayers",
-    "ol3-mapscale"
+    "ol-mapscale"
   ],
-  "homepage": "https://github.com/ghettovoice/ol3-mapscale",
+  "homepage": "https://github.com/ghettovoice/ol-mapscale",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ghettovoice/ol3-mapscale.git"
+    "url": "git://github.com/ghettovoice/ol-mapscale.git"
   },
   "ignore": [
     "**/.*",

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ol3-mapscale.iml" filepath="$PROJECT_DIR$/ol3-mapscale.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ol-mapscale.iml" filepath="$PROJECT_DIR$/ol-mapscale.iml" />
     </modules>
   </component>
 </project>

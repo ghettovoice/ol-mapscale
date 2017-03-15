@@ -1,7 +1,7 @@
 {
-  "name": "ol3-mapscale",
-  "version": "1.2.0",
-  "description": "Map scale control with scale string for OpenLayer 3",
+  "name": "ol-mapscale",
+  "version": "1.2.1",
+  "description": "Map scale control with scale string for OpenLayer",
   "main": "dist/bundle.js",
   "scripts": {
     "release": "webpack --release --verbose",
@@ -9,24 +9,24 @@
     "serv": "webpack-dev-server",
     "test": "mocha-phantomjs tests/test.html"
   },
-  "homepage": "https://github.com/ghettovoice/ol3-mapscale",
+  "homepage": "https://github.com/ghettovoice/ol-mapscale",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghettovoice/ol3-mapscale.git"
+    "url": "https://github.com/ghettovoice/ol-mapscale.git"
   },
   "keywords": [
-    "ol3",
+    "ol",
     "openlayers",
-    "ol3-mapscale"
+    "ol-mapscale"
   ],
   "author": "Vladimir Vershinin <ghettovoice@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ghettovoice/ol3-mapscale/issues"
+    "url": "https://github.com/ghettovoice/ol-mapscale/issues"
   },
   "dependencies": {},
   "peerDependencies": {
-    "openlayers": ">= 3.14"
+    "openlayers": ">=3.14"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
