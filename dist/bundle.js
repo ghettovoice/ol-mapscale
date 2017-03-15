@@ -1,11 +1,11 @@
 /*!
- * Map scale control with scale string for OpenLayer 3.
+ * Map scale control with scale string for OpenLayer.
  * 
- * @package ol3-mapscale
+ * @package ol-mapscale
  * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @version 1.2.0
+ * @version 1.2.1
  * @licence MIT https://opensource.org/licenses/MIT
- *          Based on OpenLayers 3. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
+ *          Based on OpenLayers. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2016, Vladimir Vershinin <ghettovoice@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -77,14 +77,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	__webpack_require__(3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	/**
-	 * OpenLayers 3 map scale control.
+	 * OpenLayers map scale control.
 	 * A map scale control with scale string.
 	 *
 	 * @author Vladimir Vershinin <ghettovoice@gmail.com>
 	 * @licence MIT https://opensource.org/licenses/MIT
-	 *          Based on OpenLayers 3. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
+	 *          Based on OpenLayers. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
 	 * @copyright (c) 2016, Vladimir Vershinin
 	 */
 	exports.default = _MapScaleControl2.default;
@@ -147,7 +147,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /**
 	   * @param {MapScaleControlOptions} options
 	   */
-	
 	  function MapScaleControl() {
 	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
@@ -165,7 +164,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @type {string[]}
 	     * @private
 	     */
-	
 	    var _this = _possibleConstructorReturn(this, (MapScaleControl.__proto__ || Object.getPrototypeOf(MapScaleControl)).call(this, {
 	      element: element,
 	      render: render,

@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol-mapscale)
 [![view on npm](http://img.shields.io/npm/v/ol-mapscale.svg)](https://www.npmjs.org/package/ol-mapscale)
 
-# Map scale control with scale string for OpenLayer
+# Map scale control with scale string for OpenLayers
 
 Adds custom control to [OpenLayers](https://openlayers.org/) map. Shows scale line and scale string.
 

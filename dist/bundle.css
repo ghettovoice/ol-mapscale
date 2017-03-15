@@ -1,11 +1,11 @@
 /*!
- * Map scale control with scale string for OpenLayer 3.
+ * Map scale control with scale string for OpenLayer.
  * 
- * @package ol3-mapscale
+ * @package ol-mapscale
  * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @version 1.2.0
+ * @version 1.2.1
  * @licence MIT https://opensource.org/licenses/MIT
- *          Based on OpenLayers 3. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
+ *          Based on OpenLayers. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
  * @copyright (c) 2016, Vladimir Vershinin <ghettovoice@gmail.com>
  */
 .ol-mapscale {
