@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol-mapscale)
 [![view on npm](http://img.shields.io/npm/v/ol-mapscale.svg)](https://www.npmjs.org/package/ol-mapscale)
+[![License](https://img.shields.io/github/license/ghettovoice/ol-mapscale.svg)](https://github.com/ghettovoice/ol-mapscale/blob/master/LICENSE)
 
 # Map scale control with scale string for OpenLayers
 
@@ -10,7 +11,9 @@ Adds custom control to [OpenLayers](https://openlayers.org/) map. Shows scale li
 Install it thought NPM or Bower:
 
 ```shell
-npm install ol-mapscale
+# NPM
+npm install openlayers ol-mapscale
+# or Bower
 bower install ol-mapscale
 ```
 
@@ -61,3 +64,7 @@ const map = new ol.Map({
 
 map.addControl(new ol.control.MapScale());
 ```
+
+## License
+
+MIT (c) 2016-2017, Vladimir Vershinin

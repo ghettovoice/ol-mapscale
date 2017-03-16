@@ -1,12 +1,11 @@
 /*!
- * Map scale control with scale string for OpenLayer.
+ * Map scale control with scale string for OpenLayers.
  * 
  * @package ol-mapscale
  * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @version 1.2.1
+ * @version 1.2.2
  * @licence MIT https://opensource.org/licenses/MIT
- *          Based on OpenLayers. Copyright 2005-2016 OpenLayers Contributors. All rights reserved. http://openlayers.org
- * @copyright (c) 2016, Vladimir Vershinin <ghettovoice@gmail.com>
+ * @copyright (c) 2016-2017, Vladimir Vershinin <ghettovoice@gmail.com>
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -84,8 +83,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * @author Vladimir Vershinin <ghettovoice@gmail.com>
 	 * @licence MIT https://opensource.org/licenses/MIT
-	 *          Based on OpenLayers. Copyright 2005-2015 OpenLayers Contributors. All rights reserved. http://openlayers.org
-	 * @copyright (c) 2016, Vladimir Vershinin
+	 * @copyright (c) 2016-2017, Vladimir Vershinin
 	 */
 	exports.default = _MapScaleControl2.default;
 	module.exports = exports['default'];

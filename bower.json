@@ -1,6 +1,6 @@
 {
   "name": "ol-mapscale",
-  "description": "Map scale control with scale string for OpenLayer",
+  "description": "Map scale control with scale string for OpenLayers",
   "main": "dist/bundle.js",
   "authors": [
     "Vladimir Vershinin <ghettovoice@gmail.com>"
