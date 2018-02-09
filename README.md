@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol-mapscale)
+[![Coverage Status](https://coveralls.io/repos/github/ghettovoice/ol-mapscale/badge.svg?branch=master)](https://coveralls.io/github/ghettovoice/ol-mapscale?branch=master)
 [![view on npm](http://img.shields.io/npm/v/ol-mapscale.svg)](https://www.npmjs.org/package/ol-mapscale)
+[![GitHub tag](https://img.shields.io/github/tag/ghettovoice/ol-mapscale.svg)](https://github.com/ghettovoice/ol-mapscale/releases)
 [![License](https://img.shields.io/github/license/ghettovoice/ol-mapscale.svg)](https://github.com/ghettovoice/ol-mapscale/blob/master/LICENSE)
 
 # Map scale control with scale string for OpenLayers
