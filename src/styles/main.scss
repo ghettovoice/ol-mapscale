@@ -2,36 +2,35 @@ $mapscale-control-background-color: rgba(0, 60, 136, 0.4);
 $mapscale-control-color: #eeeeee;
 
 .ol-mapscale {
-    position   : absolute;
-    bottom     : 8px;
-    left       : 8px;
-    background : $mapscale-control-background-color;
-    color      : $mapscale-control-color;
-    font-size  : 10px;
-    overflow   : hidden;
-    padding    : 2px;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: $mapscale-control-background-color;
+  color: $mapscale-control-color;
+  font-size: 10px;
+  overflow: hidden;
+  padding: 2px;
+  * {
+    color: $mapscale-control-color;
+    font-size: 10px;
+  }
 
-    * {
-        color     : $mapscale-control-color;
-        font-size : 10px;
-    }
+  > div {
+    display: inline-block;
+    padding: 2px;
+  }
 
-    > div {
-        display : inline-block;
-        padding : 2px;
-    }
+  .ol-scale-line {
+    position: static;
+    background: none;
+    padding: 0;
+  }
 
-    .ol-scale-line {
-        position   : static;
-        background : none;
-        padding    : 0;
-    }
-
-    .ol-scale-line-inner {
-        border      : 1px solid $mapscale-control-color;
-        border-top  : none;
-        text-align  : center;
-        margin      : 1px;
-        will-change : contents, width;
-    }
+  .ol-scale-line-inner {
+    border: 1px solid $mapscale-control-color;
+    border-top: none;
+    text-align: center;
+    margin: 1px;
+    will-change: contents, width;
+  }
 }

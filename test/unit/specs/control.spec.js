@@ -55,7 +55,6 @@ describe('MapScale control', function () {
     })
 
     it('should have initial value', () => {
-      console.log(elem)
       expect(elem.querySelector('.ol-scale-value').textContent).to.be.equal('1 : 148M')
     })
 
