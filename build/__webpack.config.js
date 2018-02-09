@@ -5,7 +5,7 @@ const _ = require('lodash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
-const packageJson = require('./package.json');
+const packageJson = require('../package.json');
 
 const RELEASE = _.includes(process.argv, '--release');
 const BUILD = _.includes(process.argv, '--build');

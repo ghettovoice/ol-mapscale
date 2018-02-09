@@ -96,6 +96,8 @@ jspm_packages
 .node_repl_history
 
 ### App
+/test/coverage
+/test/unit/coverage
 /dist
 /lib
 /out

@@ -1,12 +1,14 @@
 /**
- * OpenLayers map scale control.
- * A map scale control with scale string.
- *
- * @author Vladimir Vershinin <ghettovoice@gmail.com>
- * @licence MIT https://opensource.org/licenses/MIT
- * @copyright (c) 2016-2017, Vladimir Vershinin
+ * This file is part of ol-mapscale package.
+ * @module ol-mapscale
+ * @license MIT
+ * @author Vladimir Vershinin
  */
-import Control from './MapScaleControl';
-import './control.scss';
+import Control from './control'
+import './styles/main.scss'
+// for backward compatibility
+if (typeof window !== 'undefined' && window.ol) {
+  window.ol.control.MapScale = Control
+}
 
-export default Control;
+export default Control

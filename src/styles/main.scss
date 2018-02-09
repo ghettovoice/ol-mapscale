@@ -1,16 +1,18 @@
+$mapscale-control-background-color: rgba(0, 60, 136, 0.4);
+$mapscale-control-color: #eeeeee;
+
 .ol-mapscale {
     position   : absolute;
     bottom     : 8px;
     left       : 8px;
-    background : #95b9e6;
-    background : rgba(0, 60, 136, 0.4);
-    color      : #eeeeee;
+    background : $mapscale-control-background-color;
+    color      : $mapscale-control-color;
     font-size  : 10px;
     overflow   : hidden;
     padding    : 2px;
 
     * {
-        color     : #eeeeee;
+        color     : $mapscale-control-color;
         font-size : 10px;
     }
 
@@ -26,7 +28,7 @@
     }
 
     .ol-scale-line-inner {
-        border      : 1px solid #eeeeee;
+        border      : 1px solid $mapscale-control-color;
         border-top  : none;
         text-align  : center;
         margin      : 1px;
