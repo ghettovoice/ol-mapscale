@@ -16,7 +16,12 @@ function plugins (options = {}) {
     replace(options.replace),
     ...(
       options.sass
-        ? [sassPlugin(Object.assign({min: options.min}, options.sass))]
+        ? [
+          sassPlugin(Object.assign({
+            min: options.min,
+            banner: options.banner,
+          }, options.sass)),
+        ]
         : []
     ),
     babel({
@@ -42,14 +47,7 @@ function plugins (options = {}) {
         warnings: false,
       },
       output: {
-        comments: (node, comment) => {
-          let text = comment.value
-          let type = comment.type
-          if (type === 'comment2') {
-            // multiline comment
-            return /@preserve|@license|@cc_on/i.test(text)
-          }
-        },
+        preamble: options.banner,
       },
     }))
   }
@@ -80,7 +78,7 @@ function sassPlugin (options = {}) {
         code: node.content.css,
         map: node.content.map,
       }))
-      const { code, map } = concatFiles(files, options.outPath, options.banner || '')
+      const {code, map} = concatFiles(files, options.outPath, options.banner || '')
       fs.outputFileSync(options.outPath, code)
       fs.outputFileSync(options.outPath + '.map', map)
     },
@@ -104,7 +102,7 @@ function concatFiles (files, dest, banner) {
     concatenated.prepend(banner + '\n')
   }
 
-  const { code, map } = concatenated.toStringWithSourceMap({
+  const {code, map} = concatenated.toStringWithSourceMap({
     file: path.basename(dest),
   })
 

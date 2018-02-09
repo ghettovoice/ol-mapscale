@@ -1,7 +1,6 @@
 /**
  * This file is part of ol-mapscale package.
  * @module ol-mapscale
- * @license MIT
  * @author Vladimir Vershinin
  */
 import Control from 'ol/control/control'

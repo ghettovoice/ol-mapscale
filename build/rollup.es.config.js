@@ -7,8 +7,8 @@ module.exports = {
   external: config.external,
   plugins: util.plugins({
     replace: config.replace,
+    banner: config.banner,
     sass: {
-      banner: config.banner,
       outPath: path.join(__dirname, `../dist/bundle.css`),
     },
   }),
