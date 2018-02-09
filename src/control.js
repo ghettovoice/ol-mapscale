@@ -5,6 +5,7 @@
  * @author Vladimir Vershinin
  */
 import Control from 'ol/control/control'
+import ScaleLineControl from 'ol/control/scaleline'
 import { createElement, formatNumber } from './util'
 
 const DOTS_PER_INCH = 96
@@ -67,7 +68,7 @@ export default class MapScaleControl extends Control {
       const scaleLineElement = createElement('div', 'ol-scale-line-target')
       element.appendChild(scaleLineElement)
 
-      this.scaleLine_ = new ol.control.ScaleLine({
+      this.scaleLine_ = new ScaleLineControl({
         target: scaleLineElement,
         className: scaleLineClassName,
       })

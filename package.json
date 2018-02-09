@@ -9,7 +9,7 @@
     "build-es": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c build/rollup.es.config.js",
     "build": "npm run clean && npm run build-es && npm run build-umd",
     "clean": "rm -rf ./dist",
-    "start": "webpack-dev-server --config=build/webpack.dev.config.js",
+    "start": "webpack-dev-server --config=build/webpack.dev.config.js --progress --colors",
     "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "coveralls": "cat test/unit/coverage/lcov.info | coveralls"
   },
