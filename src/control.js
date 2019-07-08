@@ -3,8 +3,8 @@
  * @module ol-mapscale
  * @author Vladimir Vershinin
  */
-import Control from 'ol/control/control'
-import ScaleLineControl from 'ol/control/scaleline'
+import Control from 'ol/control/Control'
+import ScaleLineControl from 'ol/control/ScaleLine'
 import { createElement, formatNumber } from './util'
 
 const DOTS_PER_INCH = 96

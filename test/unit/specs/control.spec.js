@@ -1,7 +1,7 @@
 /* global describe, it, expect, sinon, beforeEach, afterEach */
-import Map from 'ol/map'
-import View from 'ol/view'
-import Control from 'ol/control/control'
+import Map from 'ol/Map'
+import View from 'ol/View'
+import Control from 'ol/control/Control'
 import MapScaleControl from '../../../src'
 
 describe('MapScale control', function () {
