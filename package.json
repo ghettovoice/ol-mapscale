@@ -1,6 +1,6 @@
 {
   "name": "ol-mapscale",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Map scale control with scale string for OpenLayers",
   "main": "dist/bundle.js",
   "module": "dist/bundle.es.js",
