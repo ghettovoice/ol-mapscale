@@ -30,7 +30,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "ol": ">=4.1"
+    "ol": ">=5.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -61,7 +61,7 @@
     "karma-webpack": "^2.0.9",
     "mocha": "^5.0.0",
     "mocha-phantomjs": "^4.1.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.11.0",
     "ol": "^5.3.3",
     "openlayers": "^4.6.4",
     "phantomjs-prebuilt": "^2.1.16",
@@ -92,8 +92,8 @@
     "src"
   ],
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8.0.0",
+    "npm": ">= 6.0.0"
   },
   "browserslist": [
     "> 1%",
