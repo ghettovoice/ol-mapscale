@@ -37,6 +37,7 @@ module.exports = {
         include: [
           srcPath,
           path.join(__dirname, '../test'),
+          path.join(__dirname, '../node_modules/ol'),
         ],
       }, {
         test: /\.json$/i,
@@ -79,7 +80,7 @@ module.exports = {
         ],
       },
     ],
-    noParse: [/openlayers/],
+    noParse: [/node_modules\/openlayers/],
   },
   plugins,
 }
