@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.org/ghettovoice/ol-mapscale)
+[![Build Status](https://travis-ci.com/ghettovoice/ol-mapscale.svg?branch=master)](https://travis-ci.com/ghettovoice/ol-mapscale)
 [![Coverage Status](https://coveralls.io/repos/github/ghettovoice/ol-mapscale/badge.svg?branch=master)](https://coveralls.io/github/ghettovoice/ol-mapscale?branch=master)
 [![view on npm](http://img.shields.io/npm/v/ol-mapscale.svg)](https://www.npmjs.org/package/ol-mapscale)
 [![GitHub tag](https://img.shields.io/github/tag/ghettovoice/ol-mapscale.svg)](https://github.com/ghettovoice/ol-mapscale/releases)
@@ -98,4 +98,4 @@ map.addControl(new MapScaleControl())
 
 ## License
 
-MIT (c) 2016-2018, Vladimir Vershinin
+MIT (c) 2016-2020, Vladimir Vershinin
